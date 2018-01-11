@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class TableViewCell: UITableViewCell {
+final class SettingCell: UITableViewCell {
     
     @IBOutlet fileprivate weak var titleLabel: UILabel!
-    
+
     func configure(_ text: String) {
-        titleLabel.text      = text
+        titleLabel.text = text
     }
     
 }

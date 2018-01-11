@@ -61,7 +61,7 @@ extension ViewController: UITableViewDelegate {
 
 fileprivate extension ViewController {
     func configure() {
-      //  configureUI()
+        configureUI()
         configureTableView()
     }
     
@@ -72,13 +72,14 @@ fileprivate extension ViewController {
     }
     
     private func configureUI() {
-//        view.backgroundColor = UIColor.white
-//        tableView.backgroundColor = UIColor.white
-//        tableView.separatorColor = UIColor.black
+        view.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.white
+        tableView.separatorColor = UIColor.black
     }
     
     private func configureTableView() {
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+//        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        tableView.register(R.nib.settingCell)
         let dataSource = ViewController.dataSource()
         
         vm
@@ -119,7 +120,7 @@ fileprivate extension ViewController {
                 switch ProfileSection(rawValue: indexPath.section)! {
                 case .profile:
                     // reuseIdentifierは自分で作る説
-                    let cell = table.dequeueReusableCell(withIdentifier: R.reuseIdentifier.settingCell, for: indexPath)!
+                    let cell = table.dequeueReusableCell(withIdentifier: R.reuseIdentifier.tableViewCell, for: indexPath)!
                     cell.configure(text)
                     return cell
                 }
