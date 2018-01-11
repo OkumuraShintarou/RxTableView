@@ -38,12 +38,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
-    /// Nib `TableViewCell`.
-    static let tableViewCell = _R.nib._TableViewCell()
+    /// Nib `SettingCell`.
+    static let settingCell = _R.nib._SettingCell()
     
-    /// `UINib(name: "TableViewCell", in: bundle)`
-    static func tableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.tableViewCell)
+    /// `UINib(name: "SettingCell", in: bundle)`
+    static func settingCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingCell)
     }
     
     fileprivate init() {}
@@ -52,7 +52,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `TableViewCell`.
-    static let tableViewCell: Rswift.ReuseIdentifier<TableViewCell> = Rswift.ReuseIdentifier(identifier: "TableViewCell")
+    static let tableViewCell: Rswift.ReuseIdentifier<SettingCell> = Rswift.ReuseIdentifier(identifier: "TableViewCell")
     
     fileprivate init() {}
   }
@@ -102,15 +102,15 @@ struct R: Rswift.Validatable {
 
 struct _R {
   struct nib {
-    struct _TableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = TableViewCell
+    struct _SettingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SettingCell
       
       let bundle = R.hostingBundle
       let identifier = "TableViewCell"
-      let name = "TableViewCell"
+      let name = "SettingCell"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TableViewCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SettingCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingCell
       }
       
       fileprivate init() {}

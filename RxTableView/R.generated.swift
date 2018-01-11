@@ -38,20 +38,22 @@ struct R: Rswift.Validatable {
   
   /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
-    /// Nib `TableViewCell`.
-    static let tableViewCell = _R.nib._TableViewCell()
+    /// Nib `SettingCell`.
+    static let settingCell = _R.nib._SettingCell()
     
-    /// `UINib(name: "TableViewCell", in: bundle)`
-    static func tableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.tableViewCell)
+    /// `UINib(name: "SettingCell", in: bundle)`
+    static func settingCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingCell)
     }
     
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
-        static let settingCell: Rswift.ReuseIdentifier<TableViewCell> = Rswift.ReuseIdentifier(identifier: "TableViewCell")
+    /// Reuse identifier `TableViewCell`.
+    static let tableViewCell: Rswift.ReuseIdentifier<SettingCell> = Rswift.ReuseIdentifier(identifier: "TableViewCell")
+    
     fileprivate init() {}
   }
   
@@ -100,12 +102,15 @@ struct R: Rswift.Validatable {
 
 struct _R {
   struct nib {
-    struct _TableViewCell: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "TableViewCell"
+    struct _SettingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SettingCell
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TableViewCell
+      let bundle = R.hostingBundle
+      let identifier = "TableViewCell"
+      let name = "SettingCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SettingCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SettingCell
       }
       
       fileprivate init() {}
