@@ -15,7 +15,7 @@ final class TableViewModel {
 
     init() {
         item$ = Observable.just([
-            CommonSection(header: "", items: [
+            CommonSection(header: "aa", items: [
                 "ニックネーム",
                 "メールアドレス",
                 "パスワード"

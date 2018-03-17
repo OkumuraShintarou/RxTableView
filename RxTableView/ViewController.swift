@@ -44,7 +44,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 120
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
@@ -63,6 +63,10 @@ extension ViewController: UITableViewDelegate {
         header.textLabel?.font      = R.systemFont.hiraginoSansW3(size: 13)
         header.contentView.backgroundColor = UIColor.white
     }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5 // セルの下部のスペース
+    }
 }
 
 fileprivate extension ViewController {
@@ -80,7 +84,7 @@ fileprivate extension ViewController {
     private func configureUI() {
         view.backgroundColor = UIColor.white
         tableView.backgroundColor = UIColor.white
-        tableView.separatorColor = UIColor.black
+//        tableView.separatorColor = UIColor.black
     }
     
     private func configureTableView() {
@@ -131,7 +135,6 @@ fileprivate extension ViewController {
             configureCell: { _ ,table, indexPath, text in
                 switch ProfileSection(rawValue: indexPath.section)! {
                 case .profile:
-                    // reuseIdentifierは自分で作る?
                     let cell = table.dequeueReusableCell(withIdentifier: R.reuseIdentifier.tableViewCell, for: indexPath)!
                     cell.configure(text)
                     return cell
@@ -143,7 +146,6 @@ fileprivate extension ViewController {
         },
         titleForHeaderInSection: { dataSource, index in
             dataSource[index].header
-            
             }
         )
     }
