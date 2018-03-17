@@ -15,11 +15,17 @@ class ViewController: UIViewController {
     
     enum ProfileSection: Int {
         case profile
+        case settingProfile
         
         enum ProfileSectionType: Int {
             case name
             case mail
             case password
+        }
+
+        enum SettingProfileSection: Int {
+            case changeName
+            case registerPhoneNumber
         }
     }
     
@@ -78,7 +84,6 @@ fileprivate extension ViewController {
     }
     
     private func configureTableView() {
-//        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         tableView.register(R.nib.settingCell)
         let dataSource = ViewController.dataSource()
         
@@ -101,7 +106,14 @@ fileprivate extension ViewController {
                     case .password:
                         print("password")
                     }
-                    
+                case .settingProfile:
+                    switch ProfileSection.SettingProfileSection(rawValue: indexPath.row)! {
+                    case .changeName:
+                        print("")
+                    case .registerPhoneNumber:
+                        print("")
+                    }
+
                 }
             })
             .disposed(by: bag)
@@ -119,7 +131,11 @@ fileprivate extension ViewController {
             configureCell: { _ ,table, indexPath, text in
                 switch ProfileSection(rawValue: indexPath.section)! {
                 case .profile:
-                    // reuseIdentifierは自分で作る説
+                    // reuseIdentifierは自分で作る?
+                    let cell = table.dequeueReusableCell(withIdentifier: R.reuseIdentifier.tableViewCell, for: indexPath)!
+                    cell.configure(text)
+                    return cell
+                case .settingProfile:
                     let cell = table.dequeueReusableCell(withIdentifier: R.reuseIdentifier.tableViewCell, for: indexPath)!
                     cell.configure(text)
                     return cell

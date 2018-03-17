@@ -19,6 +19,10 @@ final class TableViewModel {
                 "ニックネーム",
                 "メールアドレス",
                 "パスワード"
+                ]),
+            CommonSection(header: "", items: [
+                "名前を変更する",
+                "電話番号を登録する"
                 ])
             ])
     }
